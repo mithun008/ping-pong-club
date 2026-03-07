@@ -11,219 +11,236 @@
   --accent:#e8ff47; --accent2:#ff4757; --accent3:#00d4ff;
   --text:#f0f0f8; --muted:#6b6b80; --border:rgba(232,255,71,0.15);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.15em;color:var(--accent);text-decoration:none}
-.logo span{color:var(--text)}
-nav ul{list-style:none;display:flex;gap:2rem}
-nav a{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-nav a:hover{color:var(--accent)}
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,15,0.93); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+.logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.15em; color:var(--accent); text-decoration:none; }
+.logo span { color:var(--text); }
+nav ul { list-style:none; display:flex; gap:2rem; }
+nav a { font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+nav a:hover { color:var(--accent); }
 
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 5rem;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(232,255,71,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(0,212,255,.04) 0%,transparent 60%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(232,255,71,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
-.hero-ball{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#e8ff47 30%,#b8cc30 60%,#2a2a10 100%);box-shadow:0 0 100px rgba(232,255,71,.2),inset -20px -20px 60px rgba(0,0,0,.6);animation:floatBall 6s ease-in-out infinite}
-.ball-shine{position:absolute;width:52px;height:30px;background:radial-gradient(ellipse,rgba(255,255,255,.85) 0%,transparent 100%);top:20%;left:25%;border-radius:50%;transform:rotate(-30deg)}
-@keyframes floatBall{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 16px))}}
-.hero-eyebrow{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:1.2rem;position:relative;z-index:1;animation:slideUp .8s .1s both}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9.5rem);line-height:.92;letter-spacing:.02em;position:relative;z-index:1;animation:slideUp .8s .3s both}
-.hero-title .outline{color:transparent;-webkit-text-stroke:2px var(--accent)}
-.hero-sub{font-size:1.05rem;color:var(--muted);max-width:400px;line-height:1.75;margin-top:1.8rem;position:relative;z-index:1;animation:slideUp .8s .5s both}
-.hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;position:relative;z-index:1;animation:slideUp .8s .7s both}
-@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.hero-needle{position:absolute;right:3%;bottom:0;height:90%;width:auto;opacity:.55;pointer-events:none;z-index:0}
-@media(max-width:900px){.hero-needle{display:none}}font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:.9rem 1.8rem;border:none;border-radius:2px;text-decoration:none;transition:transform .2s,box-shadow .2s;display:inline-block;cursor:pointer}
-.btn-prim:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,255,71,.3)}
-.btn-out{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);background:transparent;padding:.9rem 1.8rem;border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:all .2s;display:inline-block}
-.btn-out:hover{background:rgba(232,255,71,.07);border-color:var(--accent)}
-.hero-stats{display:flex;gap:3rem;margin-top:5rem;padding-top:2.5rem;border-top:1px solid var(--border);position:relative;z-index:1;animation:slideUp .8s .9s both;flex-wrap:wrap}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--accent);line-height:1}
-.stat-lbl{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+/* HERO */
+#hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:8rem 3rem 5rem; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(232,255,71,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(0,212,255,.04) 0%,transparent 60%); }
+.hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(232,255,71,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,.04) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%); -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%); }
+.hero-ball { position:absolute; right:28%; top:50%; transform:translateY(-50%); width:280px; height:280px; border-radius:50%; background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.5) 0%,#e8ff47 30%,#b8cc30 60%,#2a2a10 100%); box-shadow:0 0 100px rgba(232,255,71,.2),inset -20px -20px 60px rgba(0,0,0,.6); animation:floatBall 6s ease-in-out infinite; }
+.ball-shine { position:absolute; width:50px; height:28px; background:radial-gradient(ellipse,rgba(255,255,255,.85) 0%,transparent 100%); top:20%; left:25%; border-radius:50%; transform:rotate(-30deg); }
+@keyframes floatBall { 0%,100% { transform:translateY(-50%); } 50% { transform:translateY(calc(-50% - 16px)); } }
+.hero-needle { position:absolute; right:3%; bottom:0; height:88%; width:auto; opacity:.5; pointer-events:none; z-index:0; }
+.hero-eyebrow { font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.3em; color:var(--accent); text-transform:uppercase; margin-bottom:1.2rem; position:relative; z-index:1; animation:slideUp .8s .1s both; }
+.hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,10vw,9.5rem); line-height:.92; letter-spacing:.02em; position:relative; z-index:1; animation:slideUp .8s .3s both; }
+.hero-title .outline { color:transparent; -webkit-text-stroke:2px var(--accent); }
+.hero-sub { font-size:1.05rem; color:var(--muted); max-width:400px; line-height:1.75; margin-top:1.8rem; position:relative; z-index:1; animation:slideUp .8s .5s both; }
+.hero-ctas { display:flex; gap:1rem; margin-top:2.5rem; position:relative; z-index:1; animation:slideUp .8s .7s both; }
+@keyframes slideUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+.hero-stats { display:flex; gap:3rem; margin-top:5rem; padding-top:2.5rem; border-top:1px solid var(--border); position:relative; z-index:1; animation:slideUp .8s .9s both; flex-wrap:wrap; }
+.stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--accent); line-height:1; }
+.stat-lbl { font-size:.75rem; color:var(--muted); margin-top:.2rem; }
 
-.marquee-wrap{background:var(--accent);padding:.85rem 0;overflow:hidden;white-space:nowrap}
-.marquee-track{display:inline-flex;animation:marquee 22s linear infinite}
-.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.2em;color:var(--bg);padding:0 1.8rem;text-transform:uppercase}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* BUTTONS */
+.btn-prim { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--bg); background:var(--accent); padding:.9rem 1.8rem; border:none; border-radius:2px; text-decoration:none; transition:transform .2s,box-shadow .2s; display:inline-block; cursor:pointer; }
+.btn-prim:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(232,255,71,.3); }
+.btn-out { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); background:transparent; padding:.9rem 1.8rem; border:1px solid var(--border); border-radius:2px; text-decoration:none; transition:all .2s; display:inline-block; }
+.btn-out:hover { background:rgba(232,255,71,.07); border-color:var(--accent); }
 
-section{padding:6rem 3rem}
-.stag{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;display:block}
-.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1;letter-spacing:.02em;margin-bottom:1.2rem}
+/* MARQUEE */
+.marquee-wrap { background:var(--accent); padding:.85rem 0; overflow:hidden; white-space:nowrap; }
+.marquee-track { display:inline-flex; animation:marquee 22s linear infinite; }
+.marquee-item { font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:.2em; color:var(--bg); padding:0 1.8rem; text-transform:uppercase; }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
-#about{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-vis{position:relative;height:420px}
-.about-main-card{position:absolute;top:0;left:0;width:72%;height:340px;background:linear-gradient(135deg,#1a2a08,#2a3a10);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center}
-.about-badge{position:absolute;right:0;bottom:40px;width:160px;height:125px;background:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.badge-n{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--bg);line-height:1}
-.badge-t{font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:rgba(10,10,15,.65);text-align:center;text-transform:uppercase}
-.about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
-.about-features{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.7rem}
-.feat-item{display:flex;align-items:flex-start;gap:.7rem;padding:.9rem;background:var(--surface2);border:1px solid var(--border);border-radius:2px}
-.feat-lbl{font-size:.82rem;color:var(--text);font-weight:400}
-.feat-sub{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+/* SECTIONS */
+section { padding:6rem 3rem; }
+.stag { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); margin-bottom:.8rem; display:block; }
+.stitle { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,4.5vw,4rem); line-height:1; letter-spacing:.02em; margin-bottom:1.2rem; }
 
-.dropin{background:linear-gradient(90deg,var(--accent2),#ff6b35);padding:1.4rem 3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.dropin-txt{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:.04em}
-.dropin-sub{font-size:.78rem;color:rgba(255,255,255,.75);margin-top:.12rem}
-.dropin-price{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:#fff}
-.dropin-btn{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent2);background:#fff;padding:.75rem 1.6rem;border-radius:2px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
-.dropin-btn:hover{opacity:.85}
+/* ABOUT */
+#about { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.about-vis { position:relative; height:420px; }
+.about-main-card { position:absolute; top:0; left:0; width:72%; height:340px; background:linear-gradient(135deg,#1a2a08,#2a3a10); border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; }
+.about-badge { position:absolute; right:0; bottom:40px; width:160px; height:125px; background:var(--accent); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.badge-n { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--bg); line-height:1; }
+.badge-t { font-family:'Space Mono',monospace; font-size:.52rem; letter-spacing:.12em; color:rgba(10,10,15,.65); text-align:center; text-transform:uppercase; }
+.about-text p { color:var(--muted); line-height:1.8; margin-bottom:1rem; font-size:.95rem; }
+.about-features { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; margin-top:1.7rem; }
+.feat-item { display:flex; align-items:flex-start; gap:.7rem; padding:.9rem; background:var(--surface2); border:1px solid var(--border); border-radius:2px; }
+.feat-lbl { font-size:.82rem; color:var(--text); font-weight:400; }
+.feat-sub { font-size:.72rem; color:var(--muted); margin-top:.1rem; }
 
-#membership{background:var(--bg)}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
-.mem-card{border:1px solid var(--border);border-radius:4px;padding:2.2rem;position:relative;transition:transform .3s,border-color .3s,box-shadow .3s}
-.mem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.mem-card:hover{transform:translateY(-5px);border-color:rgba(232,255,71,.28);box-shadow:0 18px 50px rgba(0,0,0,.35)}
-.mem-card:hover::before,.mem-card.featured::before{transform:scaleX(1)}
-.mem-card.featured{background:linear-gradient(135deg,#1a2a08,#0f1a05);border-color:var(--accent)}
-.feat-badge{position:absolute;top:1.3rem;right:1.3rem;background:var(--accent);color:var(--bg);font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:.28rem .6rem;border-radius:2px;text-transform:uppercase}
-.card-type{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
-.card-price{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--accent);line-height:1}
-.card-price span{font-size:1.4rem}
-.card-per{font-size:.78rem;color:var(--muted);margin-top:.2rem}
-.card-div{height:1px;background:var(--border);margin:1.3rem 0}
-.card-feats{list-style:none}
-.card-feats li{font-size:.87rem;color:var(--muted);padding:.45rem 0;display:flex;align-items:center;gap:.55rem}
-.card-feats li::before{content:'→';color:var(--accent);flex-shrink:0}
-.card-btn{display:block;text-align:center;margin-top:1.8rem;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:.85rem;border-radius:2px;text-decoration:none;transition:opacity .2s}
-.card-btn:hover{opacity:.82}
-.card-btn.outline{background:transparent;color:var(--accent);border:1px solid var(--border)}
-.card-btn.outline:hover{border-color:var(--accent)}
-.disc-sec{margin-top:4.5rem}
-.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.8rem}
-.disc-chip{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.3rem;text-align:center;transition:border-color .2s}
-.disc-chip:hover{border-color:rgba(232,255,71,.28)}
-.disc-pct{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;color:var(--accent);line-height:1}
-.disc-who{font-size:.82rem;color:var(--text);margin-top:.35rem}
-.disc-note{font-size:.72rem;color:var(--muted);margin-top:.25rem}
+/* DROP-IN */
+.dropin { background:linear-gradient(90deg,var(--accent2),#ff6b35); padding:1.4rem 3rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+.dropin-txt { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#fff; letter-spacing:.04em; }
+.dropin-sub { font-size:.78rem; color:rgba(255,255,255,.75); margin-top:.12rem; }
+.dropin-price { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:#fff; }
+.dropin-btn { font-family:'Space Mono',monospace; font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--accent2); background:#fff; padding:.75rem 1.6rem; border-radius:2px; text-decoration:none; transition:opacity .2s; white-space:nowrap; }
+.dropin-btn:hover { opacity:.85; }
 
-#coaches{background:var(--surface)}
-.coaches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.5rem}
-.coach-card{background:var(--surface2);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.coach-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.coach-photo{height:280px;position:relative;overflow:hidden;background:#0a0a0f}
-.coach-photo svg{position:absolute;inset:0;width:100%;height:100%}
-.coach-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s,filter .4s;filter:grayscale(20%)}
-.coach-card:hover .coach-photo img{transform:scale(1.05);filter:grayscale(0%)}
-.coach-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(10,10,15,.8) 100%)}
-.coach-tag{position:absolute;bottom:1rem;right:1rem;background:var(--accent);color:var(--bg);font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:.28rem .65rem;border-radius:2px;text-transform:uppercase}
-.coach-info{padding:1.4rem 1.8rem 1.8rem}
-.coach-name{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.04em}
-.coach-title{font-size:.78rem;color:var(--accent);margin-top:.2rem}
-.coach-bio{font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.75rem}
-.coach-stats{display:flex;gap:1.3rem;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid var(--border)}
-.csn{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--accent)}
-.csl{font-size:.65rem;color:var(--muted);margin-top:.1rem}
+/* MEMBERSHIP */
+#membership { background:var(--bg); }
+.mem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3.5rem; }
+.mem-card { border:1px solid var(--border); border-radius:4px; padding:2.2rem; position:relative; transition:transform .3s,border-color .3s,box-shadow .3s; }
+.mem-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+.mem-card:hover { transform:translateY(-5px); border-color:rgba(232,255,71,.28); box-shadow:0 18px 50px rgba(0,0,0,.35); }
+.mem-card:hover::before, .mem-card.featured::before { transform:scaleX(1); }
+.mem-card.featured { background:linear-gradient(135deg,#1a2a08,#0f1a05); border-color:var(--accent); }
+.feat-badge { position:absolute; top:1.3rem; right:1.3rem; background:var(--accent); color:var(--bg); font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:.1em; padding:.28rem .6rem; border-radius:2px; text-transform:uppercase; }
+.card-type { font-family:'Space Mono',monospace; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:.9rem; }
+.card-price { font-family:'Bebas Neue',sans-serif; font-size:3.2rem; color:var(--accent); line-height:1; }
+.card-price span { font-size:1.4rem; }
+.card-per { font-size:.78rem; color:var(--muted); margin-top:.2rem; }
+.card-div { height:1px; background:var(--border); margin:1.3rem 0; }
+.card-feats { list-style:none; }
+.card-feats li { font-size:.87rem; color:var(--muted); padding:.45rem 0; display:flex; align-items:center; gap:.55rem; }
+.card-feats li::before { content:'→'; color:var(--accent); flex-shrink:0; }
+.card-btn { display:block; text-align:center; margin-top:1.8rem; font-family:'Space Mono',monospace; font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:var(--bg); background:var(--accent); padding:.85rem; border-radius:2px; text-decoration:none; transition:opacity .2s; }
+.card-btn:hover { opacity:.82; }
+.card-btn.outline { background:transparent; color:var(--accent); border:1px solid var(--border); }
+.card-btn.outline:hover { border-color:var(--accent); }
+.disc-sec { margin-top:4.5rem; }
+.disc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.9rem; margin-top:1.8rem; }
+.disc-chip { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:1.3rem; text-align:center; transition:border-color .2s; }
+.disc-chip:hover { border-color:rgba(232,255,71,.28); }
+.disc-pct { font-family:'Bebas Neue',sans-serif; font-size:2.3rem; color:var(--accent); line-height:1; }
+.disc-who { font-size:.82rem; color:var(--text); margin-top:.35rem; }
+.disc-note { font-size:.72rem; color:var(--muted); margin-top:.25rem; }
 
-#spotlights{background:var(--surface2)}
-.spot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.5rem}
-.spot-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.spot-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,.45)}
-.spot-img-wrap{position:relative;overflow:hidden}
-.spot-img{width:100%;height:240px;object-fit:cover;object-position:top;display:block;transition:transform .5s,filter .4s;filter:grayscale(15%)}
-.spot-card:hover .spot-img{transform:scale(1.04);filter:grayscale(0%)}
-.spot-rank{position:absolute;top:.9rem;left:.9rem;background:var(--accent);color:var(--bg);font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.1em;padding:.25rem .75rem;border-radius:2px}
-.spot-lvl{position:absolute;top:.9rem;right:.9rem;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .65rem;border-radius:2px;border:1px solid}
-.lvl-e{background:rgba(232,255,71,.1);color:var(--accent);border-color:var(--accent)}
-.lvl-a{background:rgba(0,212,255,.1);color:var(--accent3);border-color:var(--accent3)}
-.lvl-r{background:rgba(255,71,87,.1);color:var(--accent2);border-color:var(--accent2)}
-.spot-body{padding:1.4rem 1.7rem 1.7rem}
-.spot-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1}
-.spot-since{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--accent);letter-spacing:.08em;margin-top:.2rem}
-.spot-bio{font-size:.83rem;color:var(--muted);line-height:1.7;margin-top:.75rem}
-.spot-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid var(--border)}
-.spst{text-align:center}
-.spst-n{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;color:var(--accent);line-height:1}
-.spst-l{font-size:.62rem;color:var(--muted);margin-top:.15rem}
-.spot-ach{display:flex;align-items:center;gap:.55rem;margin-top:.9rem;padding:.65rem .9rem;background:rgba(232,255,71,.06);border:1px solid rgba(232,255,71,.12);border-radius:2px}
-.ach-txt{font-size:.78rem;color:var(--text)}
+/* COACHES */
+#coaches { background:var(--surface); }
+.coaches-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; margin-top:3.5rem; }
+.coach-card { background:var(--surface2); border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:transform .3s,box-shadow .3s; }
+.coach-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+.coach-photo { height:280px; position:relative; overflow:hidden; background:#0a0a0f; display:block; }
+.coach-photo svg { position:absolute; top:0; left:0; width:100%; height:100%; display:block; }
+.coach-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,transparent 55%,rgba(10,10,15,.8) 100%); pointer-events:none; }
+.coach-tag { position:absolute; bottom:1rem; right:1rem; background:var(--accent); color:var(--bg); font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:.1em; padding:.28rem .65rem; border-radius:2px; text-transform:uppercase; }
+.coach-info { padding:1.4rem 1.8rem 1.8rem; }
+.coach-name { font-family:'Bebas Neue',sans-serif; font-size:1.55rem; letter-spacing:.04em; }
+.coach-title { font-size:.78rem; color:var(--accent); margin-top:.2rem; }
+.coach-bio { font-size:.83rem; color:var(--muted); line-height:1.7; margin-top:.75rem; }
+.coach-stats { display:flex; gap:1.3rem; margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--border); }
+.csn { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--accent); }
+.csl { font-size:.65rem; color:var(--muted); margin-top:.1rem; }
 
-#testimonials{background:var(--bg)}
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
-.test-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.8rem;position:relative;overflow:hidden}
-.test-card::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:7rem;color:var(--accent);opacity:.08;position:absolute;top:-1rem;left:1.2rem;line-height:1;pointer-events:none}
-.stars{color:var(--accent);font-size:.78rem;margin-bottom:.9rem}
-.test-txt{font-size:.87rem;color:var(--muted);line-height:1.8;font-style:italic;position:relative;z-index:1}
-.test-auth{display:flex;align-items:center;gap:.9rem;margin-top:1.3rem;padding-top:1.3rem;border-top:1px solid var(--border)}
-.auth-av{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid var(--border);flex-shrink:0;background:var(--surface2)}
-.auth-av img{width:100%;height:100%;object-fit:cover;object-position:top}
-.auth-name{font-weight:600;font-size:.87rem}
-.auth-lvl{font-size:.72rem;color:var(--accent);margin-top:.1rem}
+/* SPOTLIGHTS */
+#spotlights { background:var(--surface2); }
+.spot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; margin-top:3.5rem; }
+.spot-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:transform .3s,box-shadow .3s; }
+.spot-card:hover { transform:translateY(-5px); box-shadow:0 22px 55px rgba(0,0,0,.45); }
+.spot-img-wrap { position:relative; overflow:hidden; }
+.spot-img { width:100%; height:240px; display:block; }
+.spot-rank { position:absolute; top:.9rem; left:.9rem; background:var(--accent); color:var(--bg); font-family:'Bebas Neue',sans-serif; font-size:.9rem; letter-spacing:.1em; padding:.25rem .75rem; border-radius:2px; }
+.spot-lvl { position:absolute; top:.9rem; right:.9rem; font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; padding:.28rem .65rem; border-radius:2px; border:1px solid; }
+.lvl-e { background:rgba(232,255,71,.1); color:var(--accent); border-color:var(--accent); }
+.lvl-a { background:rgba(0,212,255,.1); color:var(--accent3); border-color:var(--accent3); }
+.lvl-r { background:rgba(255,71,87,.1); color:var(--accent2); border-color:var(--accent2); }
+.spot-body { padding:1.4rem 1.7rem 1.7rem; }
+.spot-name { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:.04em; line-height:1; }
+.spot-since { font-family:'Space Mono',monospace; font-size:.62rem; color:var(--accent); letter-spacing:.08em; margin-top:.2rem; }
+.spot-bio { font-size:.83rem; color:var(--muted); line-height:1.7; margin-top:.75rem; }
+.spot-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--border); }
+.spst { text-align:center; }
+.spst-n { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; color:var(--accent); line-height:1; }
+.spst-l { font-size:.62rem; color:var(--muted); margin-top:.15rem; }
+.spot-ach { display:flex; align-items:center; gap:.55rem; margin-top:.9rem; padding:.65rem .9rem; background:rgba(232,255,71,.06); border:1px solid rgba(232,255,71,.12); border-radius:2px; }
+.ach-txt { font-size:.78rem; color:var(--text); }
 
-#news{background:var(--surface)}
-.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.8rem;margin-top:3.5rem}
-.news-feat{background:var(--surface2);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .2s}
-.news-feat:hover{border-color:rgba(232,255,71,.28)}
-.news-hero-img{height:240px;background:linear-gradient(135deg,#1a2a08,#2a4010,#0a1a04);display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative}
-.news-cat-badge{position:absolute;bottom:1rem;left:1.4rem;background:var(--accent2);color:#fff;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:.28rem .75rem;border-radius:2px;text-transform:uppercase}
-.news-body{padding:1.8rem}
-.news-date{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.1em}
-.news-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;line-height:1.1;margin-top:.45rem;letter-spacing:.02em}
-.news-excerpt{font-size:.87rem;color:var(--muted);line-height:1.7;margin-top:.75rem}
-.news-link{display:inline-flex;align-items:center;gap:.4rem;font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;text-decoration:none;margin-top:1.1rem;transition:gap .2s}
-.news-link:hover{gap:.85rem}
-.news-side{display:flex;flex-direction:column;gap:.9rem}
-.news-sm{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:1.3rem;display:flex;gap:.9rem;align-items:flex-start;transition:border-color .2s}
-.news-sm:hover{border-color:rgba(232,255,71,.25)}
-.ns-ico{font-size:1.8rem;flex-shrink:0}
-.ns-date{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.08em}
-.ns-title{font-size:.87rem;font-weight:600;margin-top:.25rem;line-height:1.35}
-.ns-cat{font-size:.68rem;color:var(--accent);margin-top:.25rem}
+/* TESTIMONIALS */
+#testimonials { background:var(--bg); }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3.5rem; }
+.test-card { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:1.8rem; position:relative; overflow:hidden; }
+.test-card::before { content:'"'; font-family:'Bebas Neue',sans-serif; font-size:7rem; color:var(--accent); opacity:.08; position:absolute; top:-1rem; left:1.2rem; line-height:1; pointer-events:none; }
+.stars { color:var(--accent); font-size:.78rem; margin-bottom:.9rem; }
+.test-txt { font-size:.87rem; color:var(--muted); line-height:1.8; font-style:italic; position:relative; z-index:1; }
+.test-auth { display:flex; align-items:center; gap:.9rem; margin-top:1.3rem; padding-top:1.3rem; border-top:1px solid var(--border); }
+.auth-av { width:44px; height:44px; border-radius:50%; overflow:hidden; border:2px solid var(--border); flex-shrink:0; background:var(--surface2); }
+.auth-av svg { width:100%; height:100%; display:block; }
+.auth-name { font-weight:600; font-size:.87rem; }
+.auth-lvl { font-size:.72rem; color:var(--accent); margin-top:.1rem; }
 
-#contact{background:var(--bg)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem}
-.c-block{display:flex;gap:1.1rem;padding:1.3rem 0;border-bottom:1px solid var(--border)}
-.c-ico{width:42px;height:42px;background:var(--surface);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.c-lbl{font-size:.68rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
-.c-val{font-size:.92rem;color:var(--text);margin-top:.18rem}
-.hours-tbl{margin-top:2.2rem}
-.hours-ttl{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
-.h-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid rgba(232,255,71,.06);font-size:.83rem}
-.h-day{color:var(--muted)}
-.h-time{color:var(--text)}
-.h-hl .h-day,.h-hl .h-time{color:var(--accent)}
-.c-form{display:flex;flex-direction:column;gap:.9rem}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.f-grp{display:flex;flex-direction:column;gap:.35rem}
-.f-lbl{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.f-inp{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.85rem .95rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;transition:border-color .2s;outline:none;width:100%}
-.f-inp:focus{border-color:var(--accent)}
-.f-inp::placeholder{color:var(--muted)}
-textarea.f-inp{resize:vertical;min-height:115px}
-.f-sub{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:.9rem 1.8rem;border:none;border-radius:2px;cursor:pointer;transition:transform .2s,box-shadow .2s;align-self:flex-start}
-.f-sub:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(232,255,71,.28)}
+/* NEWS */
+#news { background:var(--surface); }
+.news-grid { display:grid; grid-template-columns:2fr 1fr; gap:1.8rem; margin-top:3.5rem; }
+.news-feat { background:var(--surface2); border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:border-color .2s; }
+.news-feat:hover { border-color:rgba(232,255,71,.28); }
+.news-hero-img { height:240px; background:linear-gradient(135deg,#1a2a08,#2a4010,#0a1a04); display:flex; align-items:center; justify-content:center; font-size:4.5rem; position:relative; }
+.news-cat-badge { position:absolute; bottom:1rem; left:1.4rem; background:var(--accent2); color:#fff; font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:.1em; padding:.28rem .75rem; border-radius:2px; text-transform:uppercase; }
+.news-body { padding:1.8rem; }
+.news-date { font-family:'Space Mono',monospace; font-size:.62rem; color:var(--muted); letter-spacing:.1em; }
+.news-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; line-height:1.1; margin-top:.45rem; letter-spacing:.02em; }
+.news-excerpt { font-size:.87rem; color:var(--muted); line-height:1.7; margin-top:.75rem; }
+.news-link { display:inline-flex; align-items:center; gap:.4rem; font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.1em; color:var(--accent); text-transform:uppercase; text-decoration:none; margin-top:1.1rem; transition:gap .2s; }
+.news-link:hover { gap:.85rem; }
+.news-side { display:flex; flex-direction:column; gap:.9rem; }
+.news-sm { background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:1.3rem; display:flex; gap:.9rem; align-items:flex-start; transition:border-color .2s; }
+.news-sm:hover { border-color:rgba(232,255,71,.25); }
+.ns-ico { font-size:1.8rem; flex-shrink:0; }
+.ns-date { font-family:'Space Mono',monospace; font-size:.58rem; color:var(--muted); letter-spacing:.08em; }
+.ns-title { font-size:.87rem; font-weight:600; margin-top:.25rem; line-height:1.35; }
+.ns-cat { font-size:.68rem; color:var(--accent); margin-top:.25rem; }
 
-footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.15em;color:var(--accent)}
-.foot-logo span{color:var(--muted)}
-.foot-copy{font-size:.72rem;color:var(--muted);margin-top:.3rem}
-.foot-links{display:flex;gap:1.8rem;flex-wrap:wrap}
-.foot-links a{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-.foot-links a:hover{color:var(--accent)}
+/* CONTACT */
+#contact { background:var(--bg); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:3.5rem; }
+.c-block { display:flex; gap:1.1rem; padding:1.3rem 0; border-bottom:1px solid var(--border); }
+.c-ico { width:42px; height:42px; background:var(--surface); border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.c-lbl { font-size:.68rem; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+.c-val { font-size:.92rem; color:var(--text); margin-top:.18rem; }
+.hours-tbl { margin-top:2.2rem; }
+.hours-ttl { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+.h-row { display:flex; justify-content:space-between; padding:.65rem 0; border-bottom:1px solid rgba(232,255,71,.06); font-size:.83rem; }
+.h-day { color:var(--muted); }
+.h-time { color:var(--text); }
+.h-hl .h-day, .h-hl .h-time { color:var(--accent); }
+.c-form { display:flex; flex-direction:column; gap:.9rem; }
+.f-row { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }
+.f-grp { display:flex; flex-direction:column; gap:.35rem; }
+.f-lbl { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); }
+.f-inp { background:var(--surface); border:1px solid var(--border); border-radius:2px; padding:.85rem .95rem; color:var(--text); font-family:'DM Sans',sans-serif; font-size:.88rem; transition:border-color .2s; outline:none; width:100%; }
+.f-inp:focus { border-color:var(--accent); }
+.f-inp::placeholder { color:var(--muted); }
+textarea.f-inp { resize:vertical; min-height:115px; }
+.f-sub { font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.13em; text-transform:uppercase; color:var(--bg); background:var(--accent); padding:.9rem 1.8rem; border:none; border-radius:2px; cursor:pointer; transition:transform .2s,box-shadow .2s; align-self:flex-start; }
+.f-sub:hover { transform:translateY(-2px); box-shadow:0 7px 22px rgba(232,255,71,.28); }
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* FOOTER */
+footer { background:var(--surface); border-top:1px solid var(--border); padding:2.5rem 3rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.2rem; }
+.foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.15em; color:var(--accent); }
+.foot-logo span { color:var(--muted); }
+.foot-copy { font-size:.72rem; color:var(--muted); margin-top:.3rem; }
+.foot-links { display:flex; gap:1.8rem; flex-wrap:wrap; }
+.foot-links a { font-family:'Space Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+.foot-links a:hover { color:var(--accent); }
 
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem}
-  nav ul{display:none}
-  section{padding:4rem 1.5rem}
-  #hero{padding:7rem 1.5rem 4rem}
-  .hero-ball{display:none}
-  #about{grid-template-columns:1fr}
-  .about-vis{display:none}
-  .mem-grid,.coaches-grid,.spot-grid,.test-grid{grid-template-columns:1fr}
-  .disc-grid{grid-template-columns:1fr 1fr}
-  .news-grid,.contact-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;text-align:center}
-  .foot-links{justify-content:center}
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  nav { padding:1rem 1.5rem; }
+  nav ul { display:none; }
+  section { padding:4rem 1.5rem; }
+  #hero { padding:7rem 1.5rem 4rem; }
+  .hero-ball { display:none; }
+  .hero-needle { display:none; }
+  #about { grid-template-columns:1fr; }
+  .about-vis { display:none; }
+  .mem-grid, .coaches-grid, .spot-grid, .test-grid { grid-template-columns:1fr; }
+  .disc-grid { grid-template-columns:1fr 1fr; }
+  .news-grid, .contact-grid { grid-template-columns:1fr; }
+  footer { flex-direction:column; text-align:center; }
+  .foot-links { justify-content:center; }
+  .dropin { flex-direction:column; text-align:center; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#hero" class="logo">STTC<span> Seattle</span></a>
   <ul>
@@ -237,42 +254,32 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </ul>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <!-- Seattle Space Needle SVG in hero background -->
+  <!-- Space Needle SVG -->
   <svg class="hero-needle" viewBox="0 0 220 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- legs / tripod base -->
-    <line x1="110" y1="430" x2="30"  y2="510" stroke="rgba(232,255,71,0.18)" stroke-width="5" stroke-linecap="round"/>
-    <line x1="110" y1="430" x2="110" y2="510" stroke="rgba(232,255,71,0.18)" stroke-width="5" stroke-linecap="round"/>
-    <line x1="110" y1="430" x2="190" y2="510" stroke="rgba(232,255,71,0.18)" stroke-width="5" stroke-linecap="round"/>
-    <!-- base ring -->
+    <line x1="110" y1="430" x2="30"  y2="510" stroke="rgba(232,255,71,0.2)" stroke-width="5" stroke-linecap="round"/>
+    <line x1="110" y1="430" x2="110" y2="510" stroke="rgba(232,255,71,0.2)" stroke-width="5" stroke-linecap="round"/>
+    <line x1="110" y1="430" x2="190" y2="510" stroke="rgba(232,255,71,0.2)" stroke-width="5" stroke-linecap="round"/>
     <ellipse cx="110" cy="510" rx="80" ry="8" fill="rgba(232,255,71,0.06)" stroke="rgba(232,255,71,0.12)" stroke-width="1"/>
-    <!-- lower shaft -->
-    <rect x="104" y="250" width="12" height="180" rx="2" fill="rgba(232,255,71,0.15)"/>
-    <!-- upper shaft to top -->
-    <rect x="106" y="120" width="8" height="132" rx="2" fill="rgba(232,255,71,0.2)"/>
-    <!-- saucer / observation deck -->
-    <ellipse cx="110" cy="248" rx="62" ry="14" fill="rgba(232,255,71,0.08)" stroke="rgba(232,255,71,0.25)" stroke-width="1.5"/>
-    <!-- saucer body -->
-    <path d="M52 248 Q55 228 110 222 Q165 228 168 248 Q165 268 110 274 Q55 268 52 248Z" fill="rgba(232,255,71,0.07)" stroke="rgba(232,255,71,0.2)" stroke-width="1"/>
-    <!-- saucer windows row -->
-    <circle cx="72"  cy="248" r="3" fill="rgba(232,255,71,0.3)"/>
-    <circle cx="86"  cy="242" r="3" fill="rgba(232,255,71,0.25)"/>
-    <circle cx="100" cy="239" r="3" fill="rgba(232,255,71,0.3)"/>
-    <circle cx="110" cy="238" r="3" fill="rgba(232,255,71,0.35)"/>
-    <circle cx="120" cy="239" r="3" fill="rgba(232,255,71,0.3)"/>
-    <circle cx="134" cy="242" r="3" fill="rgba(232,255,71,0.25)"/>
-    <circle cx="148" cy="248" r="3" fill="rgba(232,255,71,0.3)"/>
-    <!-- spire -->
-    <line x1="110" y1="120" x2="110" y2="18" stroke="rgba(232,255,71,0.3)" stroke-width="3" stroke-linecap="round"/>
-    <!-- spire tip glow -->
-    <circle cx="110" cy="16" r="5" fill="rgba(232,255,71,0.5)"/>
-    <circle cx="110" cy="16" r="10" fill="rgba(232,255,71,0.1)"/>
-    <!-- antenna -->
-    <line x1="110" y1="18" x2="110" y2="2" stroke="rgba(232,255,71,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-    <!-- seattle city blocks low horizon -->
+    <rect x="104" y="250" width="12" height="180" rx="2" fill="rgba(232,255,71,0.18)"/>
+    <rect x="106" y="120" width="8" height="132" rx="2" fill="rgba(232,255,71,0.22)"/>
+    <ellipse cx="110" cy="248" rx="62" ry="14" fill="rgba(232,255,71,0.08)" stroke="rgba(232,255,71,0.28)" stroke-width="1.5"/>
+    <path d="M52 248 Q55 228 110 222 Q165 228 168 248 Q165 268 110 274 Q55 268 52 248Z" fill="rgba(232,255,71,0.07)" stroke="rgba(232,255,71,0.22)" stroke-width="1"/>
+    <circle cx="72"  cy="248" r="3" fill="rgba(232,255,71,0.35)"/>
+    <circle cx="86"  cy="242" r="3" fill="rgba(232,255,71,0.28)"/>
+    <circle cx="100" cy="239" r="3" fill="rgba(232,255,71,0.35)"/>
+    <circle cx="110" cy="238" r="3" fill="rgba(232,255,71,0.45)"/>
+    <circle cx="120" cy="239" r="3" fill="rgba(232,255,71,0.35)"/>
+    <circle cx="134" cy="242" r="3" fill="rgba(232,255,71,0.28)"/>
+    <circle cx="148" cy="248" r="3" fill="rgba(232,255,71,0.35)"/>
+    <line x1="110" y1="120" x2="110" y2="18" stroke="rgba(232,255,71,0.35)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="110" cy="16" r="5"  fill="rgba(232,255,71,0.6)"/>
+    <circle cx="110" cy="16" r="11" fill="rgba(232,255,71,0.1)"/>
+    <line x1="110" y1="16" x2="110" y2="2" stroke="rgba(232,255,71,0.45)" stroke-width="1.5" stroke-linecap="round"/>
     <rect x="0"   y="488" width="25" height="22" rx="1" fill="rgba(232,255,71,0.05)"/>
     <rect x="28"  y="478" width="18" height="32" rx="1" fill="rgba(232,255,71,0.05)"/>
     <rect x="155" y="482" width="22" height="28" rx="1" fill="rgba(232,255,71,0.05)"/>
@@ -283,7 +290,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   <div class="hero-ball"><div class="ball-shine"></div></div>
   <span class="hero-eyebrow">📍 Seattle, WA · Est. 2009</span>
   <h1 class="hero-title">PLAY<br><span class="outline">HARD.</span><br>SPIN MORE.</h1>
-  <p class="hero-sub">Seattle's premier ping pong club. From first-timers to competitive players — everyone belongs at the table.</p>
+  <p class="hero-sub">Seattle's premier table tennis club. From first-timers to competitive players — everyone belongs at the table.</p>
   <div class="hero-ctas">
     <a href="#membership" class="btn-prim">Join the Club</a>
     <a href="#about" class="btn-out">Learn More</a>
@@ -296,6 +303,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">Open Play</span><span class="marquee-item">·</span>
@@ -315,6 +323,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="about-vis reveal">
     <div class="about-main-card">
@@ -347,6 +356,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </section>
 
+<!-- DROP-IN BANNER -->
 <div class="dropin">
   <div>
     <div class="dropin-txt">🏓 Walk-In Welcome — Drop-In Play Available Daily</div>
@@ -359,6 +369,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   <a href="#contact" class="dropin-btn">Find Us →</a>
 </div>
 
+<!-- MEMBERSHIP -->
 <section id="membership">
   <div class="reveal">
     <span class="stag">Membership Plans</span>
@@ -423,6 +434,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </section>
 
+<!-- COACHES -->
 <section id="coaches">
   <div class="reveal">
     <span class="stag">Our Coaches</span>
@@ -430,45 +442,33 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
     <p style="color:var(--muted);max-width:500px;line-height:1.75;font-size:.95rem">Our coaching team brings decades of competitive experience, national certifications, and a genuine love for helping players grow.</p>
   </div>
   <div class="coaches-grid reveal">
+
+    <!-- Jin Chen -->
     <div class="coach-card">
       <div class="coach-photo">
-        <!-- Jin Chen SVG portrait -->
-        <svg width="100%" height="100%" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-          <rect width="300" height="280" fill="#111820"/>
-          <rect width="300" height="280" fill="url(#bg1)"/>
-          <defs>
-            <radialGradient id="bg1" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a3a20"/><stop offset="100%" stop-color="#080f0a"/></radialGradient>
-          </defs>
-          <!-- body -->
+        <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="cg1" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a3a20"/><stop offset="100%" stop-color="#080f0a"/></radialGradient></defs>
+          <rect width="300" height="280" fill="url(#cg1)"/>
           <rect x="80" y="195" width="140" height="90" rx="12" fill="#1a2a1a"/>
-          <rect x="105" y="185" width="90" height="30" rx="6" fill="#223322"/>
-          <!-- neck -->
+          <rect x="105" y="185" width="90" height="28" rx="6" fill="#223322"/>
           <rect x="130" y="158" width="40" height="32" rx="8" fill="#c8956a"/>
-          <!-- head -->
           <ellipse cx="150" cy="140" rx="52" ry="58" fill="#c8956a"/>
-          <!-- hair -->
           <ellipse cx="150" cy="95" rx="52" ry="22" fill="#1a1208"/>
-          <rect x="98" y="95" width="104" height="20" rx="0" fill="#1a1208"/>
-          <!-- ears -->
+          <rect x="98" y="95" width="104" height="20" fill="#1a1208"/>
           <ellipse cx="98" cy="140" rx="10" ry="13" fill="#b8855a"/>
           <ellipse cx="202" cy="140" rx="10" ry="13" fill="#b8855a"/>
-          <!-- eyes -->
           <ellipse cx="132" cy="132" rx="10" ry="9" fill="white"/>
           <ellipse cx="168" cy="132" rx="10" ry="9" fill="white"/>
           <circle cx="134" cy="133" r="6" fill="#2a1a08"/>
           <circle cx="170" cy="133" r="6" fill="#2a1a08"/>
           <circle cx="136" cy="131" r="2" fill="white"/>
           <circle cx="172" cy="131" r="2" fill="white"/>
-          <!-- eyebrows -->
           <path d="M122 121 Q132 116 142 121" stroke="#1a1208" stroke-width="3" fill="none" stroke-linecap="round"/>
           <path d="M158 121 Q168 116 178 121" stroke="#1a1208" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <!-- nose -->
           <ellipse cx="150" cy="148" rx="7" ry="5" fill="#b8855a"/>
-          <!-- smile -->
           <path d="M136 162 Q150 172 164 162" stroke="#8a4a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- paddle -->
-          <ellipse cx="220" cy="230" rx="22" ry="26" fill="#cc3333" transform="rotate(-20 220 230)"/>
-          <line x1="220" y1="252" x2="225" y2="275" stroke="#6b3a1a" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="220" cy="228" rx="22" ry="26" fill="#cc3333" transform="rotate(-20 220 228)"/>
+          <line x1="220" y1="250" x2="225" y2="275" stroke="#6b3a1a" stroke-width="6" stroke-linecap="round"/>
         </svg>
         <div class="coach-overlay"></div>
         <div class="coach-tag">Head Coach</div>
@@ -476,7 +476,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
       <div class="coach-info">
         <div class="coach-name">Jin Chen</div>
         <div class="coach-title">Head Coach &amp; Founder · ITTF Level 3</div>
-        <div class="coach-bio">Former national team competitor with 20 years of coaching experience. Jin founded Seattle Table Tennis Club with a vision of creating an inclusive, high-performance club environment.</div>
+        <div class="coach-bio">Former national team competitor with 20 years of coaching experience. Jin founded Seattle Table Tennis Club with a vision of creating an inclusive, high-performance environment.</div>
         <div class="coach-stats">
           <div><div class="csn">20yr</div><div class="csl">Experience</div></div>
           <div><div class="csn">200+</div><div class="csl">Students</div></div>
@@ -484,47 +484,33 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         </div>
       </div>
     </div>
+
+    <!-- Bin Kapoor -->
     <div class="coach-card">
       <div class="coach-photo">
-        <!-- Bin Kapoor SVG portrait -->
-        <svg width="100%" height="100%" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-          <rect width="300" height="280" fill="#0f1a10"/>
-          <defs>
-            <radialGradient id="bg2" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#2a1a35"/><stop offset="100%" stop-color="#0a080f"/></radialGradient>
-          </defs>
-          <rect width="300" height="280" fill="url(#bg2)"/>
-          <!-- body -->
+        <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="cg2" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#2a1a35"/><stop offset="100%" stop-color="#0a080f"/></radialGradient></defs>
+          <rect width="300" height="280" fill="url(#cg2)"/>
           <rect x="75" y="195" width="150" height="90" rx="12" fill="#2a1a35"/>
-          <rect x="100" y="183" width="100" height="30" rx="6" fill="#3a2545"/>
-          <!-- neck -->
+          <rect x="100" y="183" width="100" height="28" rx="6" fill="#3a2545"/>
           <rect x="128" y="157" width="44" height="32" rx="8" fill="#d4956a"/>
-          <!-- head -->
           <ellipse cx="150" cy="138" rx="54" ry="58" fill="#d4956a"/>
-          <!-- long hair left -->
           <path d="M96 115 Q70 160 80 230" stroke="#1a0808" stroke-width="28" fill="none" stroke-linecap="round"/>
-          <!-- long hair right -->
           <path d="M204 115 Q230 160 220 230" stroke="#1a0808" stroke-width="28" fill="none" stroke-linecap="round"/>
-          <!-- hair top -->
           <ellipse cx="150" cy="88" rx="54" ry="24" fill="#1a0808"/>
           <rect x="96" y="88" width="108" height="22" fill="#1a0808"/>
-          <!-- ears -->
           <ellipse cx="96" cy="138" rx="10" ry="13" fill="#c4855a"/>
           <ellipse cx="204" cy="138" rx="10" ry="13" fill="#c4855a"/>
-          <!-- eyes with lashes -->
           <ellipse cx="131" cy="130" rx="11" ry="9" fill="white"/>
           <ellipse cx="169" cy="130" rx="11" ry="9" fill="white"/>
           <circle cx="133" cy="131" r="6" fill="#1a0a0a"/>
           <circle cx="171" cy="131" r="6" fill="#1a0a0a"/>
           <circle cx="135" cy="129" r="2" fill="white"/>
           <circle cx="173" cy="129" r="2" fill="white"/>
-          <!-- lashes -->
           <path d="M120 123 Q131 118 142 123" stroke="#1a0808" stroke-width="2.5" fill="none"/>
           <path d="M158 123 Q169 118 180 123" stroke="#1a0808" stroke-width="2.5" fill="none"/>
-          <!-- nose -->
           <ellipse cx="150" cy="146" rx="6" ry="5" fill="#c4855a"/>
-          <!-- smile -->
           <path d="M137 160 Q150 170 163 160" stroke="#8a4a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- earring -->
           <circle cx="204" cy="148" r="4" fill="#e8ff47"/>
         </svg>
         <div class="coach-overlay"></div>
@@ -533,7 +519,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
       <div class="coach-info">
         <div class="coach-name">Bin Kapoor</div>
         <div class="coach-title">Junior &amp; Beginners Coach · ITTF Level 2</div>
-        <div class="coach-bio">Bin's patient, encouraging style makes her a favourite. She developed our award-winning junior program and runs weeknight beginner clinics.</div>
+        <div class="coach-bio">Bin's patient, encouraging style makes her a favourite. She developed our award-winning junior program and runs weeknight beginner clinics that have welcomed hundreds of first-timers.</div>
         <div class="coach-stats">
           <div><div class="csn">8yr</div><div class="csl">Experience</div></div>
           <div><div class="csn">150+</div><div class="csl">Juniors</div></div>
@@ -541,43 +527,31 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         </div>
       </div>
     </div>
+
+    <!-- King Okafor -->
     <div class="coach-card">
       <div class="coach-photo">
-        <!-- King Okafor SVG portrait -->
-        <svg width="100%" height="100%" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-          <rect width="300" height="280" fill="#100808"/>
-          <defs>
-            <radialGradient id="bg3" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a1a30"/><stop offset="100%" stop-color="#08080f"/></radialGradient>
-          </defs>
-          <rect width="300" height="280" fill="url(#bg3)"/>
-          <!-- body -->
+        <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="cg3" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#1a1a30"/><stop offset="100%" stop-color="#08080f"/></radialGradient></defs>
+          <rect width="300" height="280" fill="url(#cg3)"/>
           <rect x="78" y="193" width="144" height="90" rx="12" fill="#1a1a2a"/>
-          <rect x="103" y="183" width="94" height="30" rx="6" fill="#252535"/>
-          <!-- neck -->
+          <rect x="103" y="183" width="94" height="28" rx="6" fill="#252535"/>
           <rect x="128" y="157" width="44" height="32" rx="8" fill="#6a4020"/>
-          <!-- head -->
           <ellipse cx="150" cy="136" rx="54" ry="58" fill="#6a4020"/>
-          <!-- short hair -->
           <ellipse cx="150" cy="86" rx="54" ry="20" fill="#120c04"/>
           <rect x="96" y="86" width="108" height="18" fill="#120c04"/>
-          <!-- ears -->
           <ellipse cx="96" cy="136" rx="10" ry="13" fill="#5a3010"/>
           <ellipse cx="204" cy="136" rx="10" ry="13" fill="#5a3010"/>
-          <!-- eyes -->
           <ellipse cx="130" cy="128" rx="11" ry="9" fill="white"/>
           <ellipse cx="170" cy="128" rx="11" ry="9" fill="white"/>
           <circle cx="132" cy="129" r="6" fill="#1a0808"/>
           <circle cx="172" cy="129" r="6" fill="#1a0808"/>
           <circle cx="134" cy="127" r="2" fill="white"/>
           <circle cx="174" cy="127" r="2" fill="white"/>
-          <!-- brows -->
           <path d="M119 118 Q130 114 141 118" stroke="#120c04" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <path d="M159 118 Q170 114 181 118" stroke="#120c04" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <!-- nose broad -->
           <ellipse cx="150" cy="146" rx="9" ry="6" fill="#5a3010"/>
-          <!-- smile -->
           <path d="M135 161 Q150 173 165 161" stroke="#3a1808" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- clipboard/tablet prop -->
           <rect x="58" y="200" width="36" height="46" rx="3" fill="#e8ff47" opacity=".8"/>
           <line x1="63" y1="212" x2="88" y2="212" stroke="#0a0a0f" stroke-width="2"/>
           <line x1="63" y1="220" x2="88" y2="220" stroke="#0a0a0f" stroke-width="2"/>
@@ -589,7 +563,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
       <div class="coach-info">
         <div class="coach-name">King Okafor</div>
         <div class="coach-title">Performance Coach · Sports Science MSc</div>
-        <div class="coach-bio">King brings a sports science background to elite player development. His video analysis sessions have helped members qualify for nationals.</div>
+        <div class="coach-bio">King brings a sports science background to elite player development. His video analysis sessions have helped several members qualify for national competitions.</div>
         <div class="coach-stats">
           <div><div class="csn">12yr</div><div class="csl">Experience</div></div>
           <div><div class="csn">40+</div><div class="csl">Elite Athletes</div></div>
@@ -597,9 +571,11 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- PLAYER SPOTLIGHTS -->
 <section id="spotlights">
   <div class="reveal">
     <span class="stag">Player Spotlights</span>
@@ -607,44 +583,31 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
     <p style="color:var(--muted);max-width:500px;line-height:1.75;font-size:.95rem">From first-time beginners to competitive champions — every player has a story. Here are a few of the incredible people who make STTC what it is.</p>
   </div>
   <div class="spot-grid reveal">
+
+    <!-- Jordan Lee -->
     <div class="spot-card">
       <div class="spot-img-wrap">
-        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="height:240px;width:100%;display:block">
+        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
           <defs><radialGradient id="sg1" cx="50%" cy="60%" r="70%"><stop offset="0%" stop-color="#1a3a20"/><stop offset="100%" stop-color="#060e07"/></radialGradient></defs>
           <rect width="400" height="240" fill="url(#sg1)"/>
-          <!-- floor line -->
           <line x1="0" y1="195" x2="400" y2="195" stroke="rgba(232,255,71,.15)" stroke-width="1"/>
-          <!-- table in bg -->
           <rect x="220" y="140" width="160" height="8" rx="2" fill="rgba(232,255,71,.12)"/>
           <line x1="300" y1="138" x2="300" y2="150" stroke="rgba(232,255,71,.3)" stroke-width="1.5"/>
-          <!-- body -->
           <rect x="135" y="148" width="90" height="50" rx="8" fill="#1a2a35"/>
-          <!-- neck -->
           <rect x="170" y="130" width="28" height="22" rx="6" fill="#c8956a"/>
-          <!-- head -->
           <ellipse cx="183" cy="112" rx="36" ry="38" fill="#c8956a"/>
-          <!-- hair -->
           <ellipse cx="183" cy="80" rx="36" ry="16" fill="#0a0806"/>
           <rect x="147" y="80" width="72" height="14" fill="#0a0806"/>
-          <!-- eyes -->
           <ellipse cx="172" cy="108" rx="7" ry="6" fill="white"/>
           <ellipse cx="194" cy="108" rx="7" ry="6" fill="white"/>
           <circle cx="173" cy="109" r="4" fill="#1a0808"/>
           <circle cx="195" cy="109" r="4" fill="#1a0808"/>
           <circle cx="174" cy="108" r="1.5" fill="white"/>
           <circle cx="196" cy="108" r="1.5" fill="white"/>
-          <!-- smile -->
           <path d="M173 123 Q183 130 193 123" stroke="#8a4a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- paddle raised -->
           <ellipse cx="88" cy="120" rx="26" ry="30" fill="#cc3333" transform="rotate(25 88 120)"/>
-          <ellipse cx="88" cy="120" rx="12" ry="14" fill="#cc6666" transform="rotate(25 88 120)"/>
           <line x1="103" y1="143" x2="118" y2="170" stroke="#6b3a1a" stroke-width="7" stroke-linecap="round"/>
-          <!-- ball -->
           <circle cx="55" cy="90" r="9" fill="#e8ff47" opacity=".9"/>
-          <!-- accent lines -->
-          <line x1="0" y1="220" x2="400" y2="220" stroke="rgba(232,255,71,.06)" stroke-width="1"/>
-          <!-- #1 trophy -->
-          <text x="320" y="80" font-size="48" opacity=".12" fill="#e8ff47">🏆</text>
         </svg>
         <div class="spot-rank">#1 Club Ranking</div>
         <div class="spot-lvl lvl-e">Elite</div>
@@ -652,7 +615,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
       <div class="spot-body">
         <div class="spot-name">Jordan Lee</div>
         <div class="spot-since">Member since 2019</div>
-        <p class="spot-bio">Joined as an intermediate player and quickly rose through the ranks. Now our top-ranked club player, competing at regional level and mentoring newcomers.</p>
+        <p class="spot-bio">Joined as an intermediate player and quickly rose through the ranks. Now our top-ranked club player, competing at regional level and mentoring newcomers on Tuesday evenings.</p>
         <div class="spot-stats">
           <div class="spst"><div class="spst-n">147</div><div class="spst-l">Matches Won</div></div>
           <div class="spst"><div class="spst-n">82%</div><div class="spst-l">Win Rate</div></div>
@@ -661,41 +624,32 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         <div class="spot-ach"><span style="font-size:1rem">🏆</span><span class="ach-txt">2024 STTC Open Champion</span></div>
       </div>
     </div>
+
+    <!-- Nina Patel -->
     <div class="spot-card">
       <div class="spot-img-wrap">
-        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="height:240px;width:100%;display:block">
+        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
           <defs><radialGradient id="sg2" cx="50%" cy="60%" r="70%"><stop offset="0%" stop-color="#2a1a35"/><stop offset="100%" stop-color="#0a060f"/></radialGradient></defs>
           <rect width="400" height="240" fill="url(#sg2)"/>
           <line x1="0" y1="195" x2="400" y2="195" stroke="rgba(232,255,71,.15)" stroke-width="1"/>
-          <!-- body -->
           <rect x="140" y="148" width="90" height="50" rx="8" fill="#2a1535"/>
-          <!-- neck -->
           <rect x="173" y="130" width="26" height="22" rx="6" fill="#d4a070"/>
-          <!-- head -->
           <ellipse cx="186" cy="112" rx="36" ry="38" fill="#d4a070"/>
-          <!-- long hair -->
           <path d="M150 95 Q125 145 138 200" stroke="#1a0808" stroke-width="24" fill="none" stroke-linecap="round"/>
           <path d="M222 95 Q247 145 234 200" stroke="#1a0808" stroke-width="24" fill="none" stroke-linecap="round"/>
           <ellipse cx="186" cy="80" rx="36" ry="17" fill="#1a0808"/>
           <rect x="150" y="80" width="72" height="15" fill="#1a0808"/>
-          <!-- eyes -->
           <ellipse cx="175" cy="108" rx="7" ry="6" fill="white"/>
           <ellipse cx="197" cy="108" rx="7" ry="6" fill="white"/>
           <circle cx="176" cy="109" r="4" fill="#0a0820"/>
           <circle cx="198" cy="109" r="4" fill="#0a0820"/>
           <circle cx="177" cy="108" r="1.5" fill="white"/>
           <circle cx="199" cy="108" r="1.5" fill="white"/>
-          <path d="M168 101 Q175 97 182 101" stroke="#1a0808" stroke-width="2" fill="none"/>
-          <path d="M190 101 Q197 97 204 101" stroke="#1a0808" stroke-width="2" fill="none"/>
           <path d="M174 123 Q186 131 196 123" stroke="#8a4a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- earrings -->
           <circle cx="150" cy="118" r="3.5" fill="#e8ff47"/>
-          <!-- paddle -->
           <ellipse cx="92" cy="125" rx="24" ry="28" fill="#0055cc" transform="rotate(-15 92 125)"/>
           <line x1="104" y1="148" x2="116" y2="172" stroke="#2a1a0a" stroke-width="6" stroke-linecap="round"/>
           <circle cx="60" cy="95" r="9" fill="#e8ff47" opacity=".85"/>
-          <!-- star -->
-          <text x="310" y="80" font-size="44" opacity=".12" fill="#e8ff47">⭐</text>
         </svg>
         <div class="spot-rank">Most Improved</div>
         <div class="spot-lvl lvl-a">Advanced</div>
@@ -712,41 +666,31 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         <div class="spot-ach"><span style="font-size:1rem">⭐</span><span class="ach-txt">Most Improved Player — 2023 &amp; 2024</span></div>
       </div>
     </div>
+
+    <!-- Theo -->
     <div class="spot-card">
       <div class="spot-img-wrap">
-        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="height:240px;width:100%;display:block">
+        <svg class="spot-img" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
           <defs><radialGradient id="sg3" cx="50%" cy="60%" r="70%"><stop offset="0%" stop-color="#101a2a"/><stop offset="100%" stop-color="#05080f"/></radialGradient></defs>
           <rect width="400" height="240" fill="url(#sg3)"/>
           <line x1="0" y1="195" x2="400" y2="195" stroke="rgba(232,255,71,.15)" stroke-width="1"/>
-          <!-- body smaller (younger) -->
           <rect x="150" y="155" width="76" height="45" rx="7" fill="#152235"/>
-          <!-- neck -->
           <rect x="175" y="138" width="22" height="20" rx="5" fill="#daa070"/>
-          <!-- head (slightly smaller) -->
           <ellipse cx="186" cy="120" rx="32" ry="34" fill="#daa070"/>
-          <!-- hair messy -->
           <ellipse cx="186" cy="90" rx="33" ry="15" fill="#0a0806"/>
           <rect x="153" y="90" width="66" height="14" fill="#0a0806"/>
           <path d="M153 92 Q160 78 174 88" stroke="#0a0806" stroke-width="8" fill="none"/>
           <path d="M219 92 Q213 80 200 88" stroke="#0a0806" stroke-width="6" fill="none"/>
-          <!-- eyes wide / young -->
           <ellipse cx="176" cy="116" rx="8" ry="7" fill="white"/>
           <ellipse cx="196" cy="116" rx="8" ry="7" fill="white"/>
           <circle cx="177" cy="117" r="5" fill="#0a0818"/>
           <circle cx="197" cy="117" r="5" fill="#0a0818"/>
           <circle cx="178" cy="115" r="1.8" fill="white"/>
           <circle cx="198" cy="115" r="1.8" fill="white"/>
-          <path d="M168 108 Q176 104 184 108" stroke="#0a0806" stroke-width="2.2" fill="none"/>
-          <path d="M188 108 Q196 104 204 108" stroke="#0a0806" stroke-width="2.2" fill="none"/>
           <path d="M175 131 Q186 139 197 131" stroke="#7a3a1a" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- paddle jumping action -->
           <ellipse cx="82" cy="110" rx="22" ry="26" fill="#cc3333" transform="rotate(35 82 110)"/>
           <line x1="96" y1="130" x2="112" y2="158" stroke="#6b3a1a" stroke-width="6" stroke-linecap="round"/>
-          <!-- ball mid air -->
           <circle cx="48" cy="72" r="8" fill="#e8ff47" opacity=".9"/>
-          <!-- rocket -->
-          <text x="308" y="75" font-size="44" opacity=".12" fill="#e8ff47">🚀</text>
-          <!-- age badge hint -->
           <rect x="290" y="160" width="90" height="30" rx="4" fill="rgba(255,71,87,.12)"/>
           <text x="335" y="180" font-size="11" fill="#ff4757" text-anchor="middle" font-family="monospace">AGE 14</text>
         </svg>
@@ -756,7 +700,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
       <div class="spot-body">
         <div class="spot-name">Theo Mäkinen</div>
         <div class="spot-since">Junior member since 2022, age 14</div>
-        <p class="spot-bio">Started in Coach Bin's junior program at age 12. He recently qualified for the state U16 championships — one of the most exciting young talents we've seen.</p>
+        <p class="spot-bio">Started in Coach Bin's junior program at age 12. He recently qualified for the state U16 championships — one of the most exciting young talents we've seen at STTC.</p>
         <div class="spot-stats">
           <div class="spst"><div class="spst-n">88</div><div class="spst-l">Matches Won</div></div>
           <div class="spst"><div class="spst-n">79%</div><div class="spst-l">Win Rate</div></div>
@@ -765,66 +709,76 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
         <div class="spot-ach"><span style="font-size:1rem">🚀</span><span class="ach-txt">2025 State U16 Championships Qualifier</span></div>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="reveal">
     <span class="stag">Player Testimonials</span>
     <h2 class="stitle">Straight from the Table.</h2>
   </div>
   <div class="test-grid reveal">
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
-      <p class="test-txt">I walked in knowing nothing about ping pong. Six months later I'm playing in the Thursday night league. The coaches here genuinely care about your progress.</p>
+      <p class="test-txt">I walked in knowing nothing about table tennis. Six months later I'm playing in the Thursday night league. The coaches here genuinely care about your progress.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#2a1535"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#d4956a"/><ellipse cx="22" cy="14" rx="10" ry="5" fill="#1a0808"/><rect x="12" y="14" width="20" height="4" fill="#1a0808"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#2a1535"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#8a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#2a1535"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#2a1535"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#d4956a"/><ellipse cx="22" cy="14" rx="10" ry="5" fill="#1a0808"/><rect x="12" y="14" width="20" height="4" fill="#1a0808"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#8a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">Sarah M.</div><div class="auth-lvl">Club Member · 1 year</div></div>
       </div>
     </div>
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
-      <p class="test-txt">ITTF-standard tables, proper lighting, and a robot trainer whenever I want. I drive 45 minutes and it's absolutely worth every minute.</p>
+      <p class="test-txt">ITTF-standard tables, proper lighting, and a robot trainer whenever I want. I drive 45 minutes and it's absolutely worth every minute of it.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#101820"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#c8956a"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#0a0806"/><rect x="12" y="13" width="20" height="4" fill="#0a0806"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#1a2a35"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#7a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#101820"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#1a2a35"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#c8956a"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#0a0806"/><rect x="12" y="13" width="20" height="4" fill="#0a0806"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#7a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">James K.</div><div class="auth-lvl">Elite Member · 3 years</div></div>
       </div>
     </div>
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
       <p class="test-txt">My son has been in the junior program for a year. His confidence has grown enormously on and off the table. So grateful for how welcoming everyone is here.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#1a1010"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#6a4020"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#120c04"/><rect x="12" y="13" width="20" height="4" fill="#120c04"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#2a1a1a"/><circle cx="18" cy="19" r="2.5" fill="#120c04"/><circle cx="26" cy="19" r="2.5" fill="#120c04"/><path d="M17 25 Q22 29 27 25" stroke="#3a1808" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#1a1010"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#2a1a1a"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#6a4020"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#120c04"/><rect x="12" y="13" width="20" height="4" fill="#120c04"/><circle cx="18" cy="19" r="2.5" fill="#120c04"/><circle cx="26" cy="19" r="2.5" fill="#120c04"/><path d="M17 25 Q22 29 27 25" stroke="#3a1808" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">Robert &amp; Liam T.</div><div class="auth-lvl">Junior Program · 1 year</div></div>
       </div>
     </div>
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
-      <p class="test-txt">The drop-in pricing is fair and the vibe on Friday evenings is electric. Best social sport night in the city. I became a full member after just two visits.</p>
+      <p class="test-txt">The drop-in pricing is fair and Friday evenings are electric. Best social sport night in Seattle. I became a full member after just two visits.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#1a1025"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#7a4a22"/><path d="M12 15 Q15 6 22 8 Q29 6 32 15" stroke="#0a0606" stroke-width="8" fill="#0a0606"/><path d="M10 18 Q8 30 15 38" stroke="#0a0606" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M34 18 Q36 30 29 38" stroke="#0a0606" stroke-width="10" fill="none" stroke-linecap="round"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#251535"/><circle cx="18" cy="19" r="2.5" fill="#0a0606"/><circle cx="26" cy="19" r="2.5" fill="#0a0606"/><path d="M17 25 Q22 29 27 25" stroke="#4a2a08" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#1a1025"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#251535"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#7a4a22"/><path d="M12 15 Q15 6 22 8 Q29 6 32 15" stroke="#0a0606" stroke-width="8" fill="#0a0606"/><path d="M10 18 Q8 30 15 38" stroke="#0a0606" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M34 18 Q36 30 29 38" stroke="#0a0606" stroke-width="10" fill="none" stroke-linecap="round"/><circle cx="18" cy="19" r="2.5" fill="#0a0606"/><circle cx="26" cy="19" r="2.5" fill="#0a0606"/><path d="M17 25 Q22 29 27 25" stroke="#4a2a08" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">Aisha N.</div><div class="auth-lvl">Starter Member · 6 months</div></div>
       </div>
     </div>
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
       <p class="test-txt">King broke down my serve mechanics via video analysis and within 3 sessions my win rate jumped significantly. Genuinely elite coaching in a club setting.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#0f1520"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#c09060"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#1a1208"/><rect x="12" y="13" width="20" height="4" fill="#1a1208"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#152030"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#7a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="16" y="13" width="12" height="2" rx="1" fill="#2a2010"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#0f1520"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#152030"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#c09060"/><ellipse cx="22" cy="13" rx="10" ry="5" fill="#1a1208"/><rect x="12" y="13" width="20" height="4" fill="#1a1208"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#7a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">Marco R.</div><div class="auth-lvl">Elite Member · 2 years</div></div>
       </div>
     </div>
+
     <div class="test-card">
       <div class="stars">★★★★★</div>
       <p class="test-txt">Brought my whole company here for a team event — everyone had a blast. The staff organised everything perfectly. Several colleagues signed up as members.</p>
       <div class="test-auth">
-        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#151025"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#e0aa80"/><path d="M12 15 Q14 5 22 7 Q30 5 32 15" stroke="#3a2010" stroke-width="8" fill="#3a2010"/><path d="M10 17 Q8 28 14 36" stroke="#3a2010" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M34 17 Q36 28 30 36" stroke="#3a2010" stroke-width="8" fill="none" stroke-linecap="round"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#201530"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#8a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="32" cy="19" r="2.5" fill="#e8ff47" opacity=".8"/></svg></div>
+        <div class="auth-av"><svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><rect width="44" height="44" fill="#151025"/><ellipse cx="22" cy="36" rx="14" ry="9" fill="#201530"/><ellipse cx="22" cy="19" rx="10" ry="11" fill="#e0aa80"/><path d="M12 15 Q14 5 22 7 Q30 5 32 15" stroke="#3a2010" stroke-width="8" fill="#3a2010"/><path d="M10 17 Q8 28 14 36" stroke="#3a2010" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M34 17 Q36 28 30 36" stroke="#3a2010" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="18" cy="19" r="2.5" fill="#1a0808"/><circle cx="26" cy="19" r="2.5" fill="#1a0808"/><path d="M17 25 Q22 29 27 25" stroke="#8a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
         <div><div class="auth-name">Linda H.</div><div class="auth-lvl">Corporate Events</div></div>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- NEWS -->
 <section id="news">
   <div class="reveal">
     <span class="stag">Latest News</span>
@@ -849,6 +803,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
     <span class="stag">Contact Us</span>
@@ -857,8 +812,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   <div class="contact-grid reveal">
     <div>
       <div class="c-block"><div class="c-ico">📍</div><div><div class="c-lbl">Location</div><div class="c-val">142 Westlake Ave N, South Lake Union<br>Seattle, WA 98109</div></div></div>
-      <div class="c-block"><div class="c-ico">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">(212) 555-0147</div></div></div>
-      <div class="c-block"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0b8b5bcbcbf90a3a0b9beb3b9a4a9b3bca5b2feb3bfbd">[email&#160;protected]</a></div></div></div>
+      <div class="c-block"><div class="c-ico">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">(206) 555-0147</div></div></div>
+      <div class="c-block"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">hello@seattlettc.com</div></div></div>
       <div class="c-block" style="border:none"><div class="c-ico">🌐</div><div><div class="c-lbl">Follow Us</div><div class="c-val">@seattlettc</div></div></div>
       <div class="hours-tbl">
         <div class="hours-ttl">// Opening Hours</div>
@@ -893,120 +848,63 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
 </section>
 
 <!-- SEATTLE SKYLINE STRIP -->
-<div style="background:var(--surface);border-top:1px solid var(--border);overflow:hidden;line-height:0">
-  <svg viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;opacity:.7">
-    <defs>
-      <linearGradient id="skygrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#0a0a0f"/>
-        <stop offset="100%" stop-color="#12121a"/>
-      </linearGradient>
-    </defs>
-    <rect width="1200" height="160" fill="url(#skygrad)"/>
-
-    <!-- distant low buildings left -->
+<div style="background:var(--surface);overflow:hidden;line-height:0;border-top:1px solid var(--border)">
+  <svg viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+    <rect width="1200" height="160" fill="#12121a"/>
     <rect x="0"   y="120" width="35" height="40"  fill="rgba(232,255,71,0.04)"/>
     <rect x="38"  y="108" width="28" height="52"  fill="rgba(232,255,71,0.05)"/>
     <rect x="68"  y="115" width="22" height="45"  fill="rgba(232,255,71,0.04)"/>
     <rect x="93"  y="100" width="30" height="60"  fill="rgba(232,255,71,0.05)"/>
-    <rect x="126" y="112" width="20" height="48"  fill="rgba(232,255,71,0.04)"/>
     <rect x="149" y="95"  width="38" height="65"  fill="rgba(232,255,71,0.06)"/>
     <rect x="190" y="105" width="24" height="55"  fill="rgba(232,255,71,0.04)"/>
     <rect x="217" y="90"  width="32" height="70"  fill="rgba(232,255,71,0.06)"/>
-    <rect x="252" y="100" width="22" height="60"  fill="rgba(232,255,71,0.05)"/>
-
-    <!-- window dots on buildings -->
-    <rect x="43"  y="115" width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="50"  y="115" width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="43"  y="122" width="4" height="3" fill="rgba(232,255,71,0.1)"/>
-    <rect x="155" y="102" width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="163" y="102" width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="155" y="109" width="4" height="3" fill="rgba(232,255,71,0.1)"/>
-    <rect x="222" y="97"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="230" y="97"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-
-    <!-- SPACE NEEDLE centrepiece -->
-    <!-- base legs -->
-    <line x1="480" y1="118" x2="430" y2="158" stroke="rgba(232,255,71,0.3)" stroke-width="3.5" stroke-linecap="round"/>
-    <line x1="480" y1="118" x2="480" y2="158" stroke="rgba(232,255,71,0.3)" stroke-width="3.5" stroke-linecap="round"/>
-    <line x1="480" y1="118" x2="530" y2="158" stroke="rgba(232,255,71,0.3)" stroke-width="3.5" stroke-linecap="round"/>
-    <!-- base platform -->
-    <ellipse cx="480" cy="158" rx="56" ry="6" fill="rgba(232,255,71,0.06)" stroke="rgba(232,255,71,0.15)" stroke-width="1"/>
-    <!-- shaft lower -->
-    <rect x="476" y="58" width="8" height="62" rx="1" fill="rgba(232,255,71,0.22)"/>
-    <!-- saucer -->
-    <ellipse cx="480" cy="57" rx="48" ry="10" fill="rgba(232,255,71,0.08)" stroke="rgba(232,255,71,0.35)" stroke-width="1.5"/>
-    <path d="M435 57 Q438 44 480 40 Q522 44 525 57 Q522 70 480 74 Q438 70 435 57Z" fill="rgba(232,255,71,0.07)" stroke="rgba(232,255,71,0.22)" stroke-width="1"/>
-    <!-- saucer windows -->
-    <circle cx="448" cy="57" r="2.5" fill="rgba(232,255,71,0.4)"/>
-    <circle cx="458" cy="52" r="2.5" fill="rgba(232,255,71,0.35)"/>
-    <circle cx="469" cy="49" r="2.5" fill="rgba(232,255,71,0.4)"/>
-    <circle cx="480" cy="48" r="2.5" fill="rgba(232,255,71,0.5)"/>
-    <circle cx="491" cy="49" r="2.5" fill="rgba(232,255,71,0.4)"/>
-    <circle cx="502" cy="52" r="2.5" fill="rgba(232,255,71,0.35)"/>
-    <circle cx="512" cy="57" r="2.5" fill="rgba(232,255,71,0.4)"/>
-    <!-- spire -->
-    <line x1="480" y1="40" x2="480" y2="6"  stroke="rgba(232,255,71,0.45)" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- tip glow -->
-    <circle cx="480" cy="5"  r="4"  fill="rgba(232,255,71,0.7)"/>
-    <circle cx="480" cy="5"  r="9"  fill="rgba(232,255,71,0.12)"/>
-    <!-- antenna -->
-    <line x1="480" y1="5" x2="480" y2="0" stroke="rgba(232,255,71,0.5)" stroke-width="1.5"/>
-
-    <!-- mid buildings left of needle -->
     <rect x="290" y="85"  width="40" height="75"  fill="rgba(232,255,71,0.06)"/>
     <rect x="333" y="70"  width="28" height="90"  fill="rgba(232,255,71,0.07)"/>
     <rect x="364" y="80"  width="34" height="80"  fill="rgba(232,255,71,0.06)"/>
     <rect x="401" y="92"  width="22" height="68"  fill="rgba(232,255,71,0.05)"/>
-    <!-- window dots -->
-    <rect x="296" y="92"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="304" y="92"  width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="296" y="100" width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="338" y="77"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="346" y="77"  width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="338" y="85"  width="4" height="3" fill="rgba(232,255,71,0.1)"/>
-
-    <!-- mid buildings right of needle -->
+    <!-- SPACE NEEDLE -->
+    <line x1="480" y1="118" x2="430" y2="158" stroke="rgba(232,255,71,0.32)" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="480" y1="118" x2="480" y2="158" stroke="rgba(232,255,71,0.32)" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="480" y1="118" x2="530" y2="158" stroke="rgba(232,255,71,0.32)" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="480" cy="158" rx="56" ry="6" fill="rgba(232,255,71,0.06)" stroke="rgba(232,255,71,0.15)" stroke-width="1"/>
+    <rect x="476" y="58" width="8" height="62" rx="1" fill="rgba(232,255,71,0.25)"/>
+    <ellipse cx="480" cy="57" rx="48" ry="10" fill="rgba(232,255,71,0.08)" stroke="rgba(232,255,71,0.38)" stroke-width="1.5"/>
+    <path d="M435 57 Q438 44 480 40 Q522 44 525 57 Q522 70 480 74 Q438 70 435 57Z" fill="rgba(232,255,71,0.07)" stroke="rgba(232,255,71,0.25)" stroke-width="1"/>
+    <circle cx="448" cy="57" r="2.5" fill="rgba(232,255,71,0.45)"/>
+    <circle cx="458" cy="52" r="2.5" fill="rgba(232,255,71,0.38)"/>
+    <circle cx="469" cy="49" r="2.5" fill="rgba(232,255,71,0.45)"/>
+    <circle cx="480" cy="48" r="2.5" fill="rgba(232,255,71,0.55)"/>
+    <circle cx="491" cy="49" r="2.5" fill="rgba(232,255,71,0.45)"/>
+    <circle cx="502" cy="52" r="2.5" fill="rgba(232,255,71,0.38)"/>
+    <circle cx="512" cy="57" r="2.5" fill="rgba(232,255,71,0.45)"/>
+    <line x1="480" y1="40" x2="480" y2="6"  stroke="rgba(232,255,71,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="480" cy="5"  r="4"  fill="rgba(232,255,71,0.75)"/>
+    <circle cx="480" cy="5"  r="9"  fill="rgba(232,255,71,0.12)"/>
+    <text x="480" y="148" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="6" fill="rgba(232,255,71,0.3)">SEATTLE</text>
+    <!-- right side buildings -->
     <rect x="540" y="88"  width="30" height="72"  fill="rgba(232,255,71,0.06)"/>
     <rect x="573" y="75"  width="40" height="85"  fill="rgba(232,255,71,0.07)"/>
     <rect x="616" y="82"  width="28" height="78"  fill="rgba(232,255,71,0.06)"/>
-    <rect x="647" y="95"  width="35" height="65"  fill="rgba(232,255,71,0.05)"/>
     <rect x="685" y="72"  width="32" height="88"  fill="rgba(232,255,71,0.07)"/>
-    <rect x="720" y="85"  width="26" height="75"  fill="rgba(232,255,71,0.06)"/>
-    <!-- window dots -->
-    <rect x="578" y="82"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="586" y="82"  width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="578" y="90"  width="4" height="3" fill="rgba(232,255,71,0.1)"/>
-    <rect x="690" y="79"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="698" y="79"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-
-    <!-- far right buildings -->
-    <rect x="760"  y="100" width="28" height="60" fill="rgba(232,255,71,0.05)"/>
-    <rect x="792"  y="88"  width="36" height="72" fill="rgba(232,255,71,0.06)"/>
-    <rect x="832"  y="96"  width="24" height="64" fill="rgba(232,255,71,0.05)"/>
-    <rect x="860"  y="80"  width="42" height="80" fill="rgba(232,255,71,0.07)"/>
-    <rect x="906"  y="92"  width="28" height="68" fill="rgba(232,255,71,0.05)"/>
-    <rect x="938"  y="105" width="20" height="55" fill="rgba(232,255,71,0.04)"/>
-    <rect x="962"  y="90"  width="34" height="70" fill="rgba(232,255,71,0.06)"/>
-    <rect x="1000" y="100" width="26" height="60" fill="rgba(232,255,71,0.05)"/>
-    <rect x="1030" y="85"  width="38" height="75" fill="rgba(232,255,71,0.06)"/>
-    <rect x="1072" y="95"  width="30" height="65" fill="rgba(232,255,71,0.05)"/>
-    <rect x="1106" y="108" width="22" height="52" fill="rgba(232,255,71,0.04)"/>
-    <rect x="1132" y="92"  width="35" height="68" fill="rgba(232,255,71,0.06)"/>
-    <rect x="1170" y="100" width="30" height="60" fill="rgba(232,255,71,0.05)"/>
-    <!-- window dots far right -->
-    <rect x="865"  y="87"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="873"  y="87"  width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-    <rect x="865"  y="95"  width="4" height="3" fill="rgba(232,255,71,0.1)"/>
-    <rect x="1035" y="92"  width="4" height="3" fill="rgba(232,255,71,0.2)"/>
-    <rect x="1043" y="92"  width="4" height="3" fill="rgba(232,255,71,0.15)"/>
-
-    <!-- reflection water at very bottom -->
-    <rect x="0" y="152" width="1200" height="8" fill="rgba(232,255,71,0.03)"/>
-    <!-- SEATTLE label -->
-    <text x="480" y="148" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="6" fill="rgba(232,255,71,0.25)" text-transform="uppercase">SEATTLE</text>
+    <rect x="760" y="100" width="28" height="60"  fill="rgba(232,255,71,0.05)"/>
+    <rect x="792" y="88"  width="36" height="72"  fill="rgba(232,255,71,0.06)"/>
+    <rect x="860" y="80"  width="42" height="80"  fill="rgba(232,255,71,0.07)"/>
+    <rect x="962" y="90"  width="34" height="70"  fill="rgba(232,255,71,0.06)"/>
+    <rect x="1030" y="85" width="38" height="75"  fill="rgba(232,255,71,0.06)"/>
+    <rect x="1132" y="92" width="35" height="68"  fill="rgba(232,255,71,0.06)"/>
+    <!-- window lights -->
+    <rect x="578" y="82" width="4" height="3" fill="rgba(232,255,71,0.22)"/>
+    <rect x="586" y="82" width="4" height="3" fill="rgba(232,255,71,0.16)"/>
+    <rect x="865" y="87" width="4" height="3" fill="rgba(232,255,71,0.22)"/>
+    <rect x="873" y="87" width="4" height="3" fill="rgba(232,255,71,0.16)"/>
+    <rect x="1035" y="92" width="4" height="3" fill="rgba(232,255,71,0.22)"/>
+    <rect x="155" y="102" width="4" height="3" fill="rgba(232,255,71,0.22)"/>
+    <rect x="338" y="77"  width="4" height="3" fill="rgba(232,255,71,0.22)"/>
+    <rect x="222" y="97"  width="4" height="3" fill="rgba(232,255,71,0.22)"/>
   </svg>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div>
     <div class="foot-logo">STTC<span> Seattle</span></div>
@@ -1022,7 +920,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
@@ -1030,4 +928,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5r
   window.addEventListener('scroll', () => {
     let cur = '';
     document.querySelectorAll('section[id]').forEach(s => {
-      if (w
+      if (window.scrollY >= s.offsetTop - 180) cur = s.id;
+    });
+    document.querySelectorAll('nav a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
